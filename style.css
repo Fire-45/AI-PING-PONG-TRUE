@@ -1,0 +1,27 @@
+body
+{
+background-image: url("Ping\ Pong\ backgroumd.jpg");
+background-size: cover;
+}
+
+
+#HEADER{
+    width: 100%;
+    text-align: left;
+}
+
+#HEADER h3{
+    display: inline;
+   
+}
+
+
+#HEADER button{
+
+    float: right;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 10px;
+}
+
+
