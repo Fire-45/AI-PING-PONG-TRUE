@@ -18,14 +18,37 @@
         
         <center>
 
-            <div id = "HEADER" class = "btn btn-primary"><h3>AI PING PONG GAME</h3> <button class = "btn btn-info" >Info</button></div>
+            <div id = "HEADER" class = "btn btn-primary">
+                <h3>AI PING PONG GAME</h3> 
+                <button class = "btn btn-info" data-toggle = "modal" data-target = "#Instructions" >Info</button></div>
             <br><br><br><br><br>
 
             <button class = "btn btn-success" onclick = "PLAY()">Play</button>
             <br><br><br><br>
+            <button class = "btn btn-primary" onclick = "RESTART()">Restart</button>
+            <br><br><br><br><br>
             <h2 id = "status" class = "btn btn-success"></h2>
             <br><br><br><br><br>
-            <div></div>
+            <div id = "canvas"></div>
+
+
+
+            <div id = "Instructions" class = "modal fade">
+                <div class = "modal-dialong">
+                    <div class = "modal-content" style = "background-color: white; color: black; border-radius: 15px; box-shadow: 5px,5px,0,grey;">
+                        <div class = "modal-header">
+                            <button class = "close" data-dismiss = "modal">&times;</button>
+                        </div>
+                        <div class = "modal-body">
+                            <h3 style = "color: silver; font-size: 15px;">
+                                -You will use your nose to conrtol the paddle and you will try to hit the ball like that.
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id = "footer">Website created by Ibrahim</div>
 
             
 
