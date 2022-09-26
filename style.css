@@ -35,4 +35,15 @@ background-size: cover;
     width: 100%;
 }
 
+#CANVAS{
+    border-color: rgb(34, 167, 122);
+    border-width: 10px;
+    border-style: ridge;
+    background-color: white;
+    width: 600px;
+    height: 400px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
 

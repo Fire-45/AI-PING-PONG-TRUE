@@ -24,10 +24,10 @@ var ball = {
 function setup(){
   var canvas =  createCanvas(700,600);
   //is this canvas already being used?, if so then what shold I do create a new canvas?
-  canvas.parent("canvas");
+  //canvas.parent("CANVAS");
 
   video = createCapture(VIDEO);
-  video.size(700,600);
+  video.size(600,400);
   video.hide();
 
   poseNet = ml5.poseNet(video,modelLoaded);
@@ -41,7 +41,7 @@ function modelLoaded(){
 
 function draw(){
 
-   image(video,0,0,700,600);
+   image(video,0,0,600,400);
 
  background(0); 
 
