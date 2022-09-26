@@ -1,6 +1,9 @@
 rightWristX = "";
 rightWristY = "";
 rightWristScore = "";
+game_status = "";
+ball_touch = loadSound('ball_touch_paddel.wav');
+ball_miss = loadSound('missed.wav');
 /*created by prashant shukla */
 
 var paddle2 =10,paddle1=10;
@@ -23,6 +26,9 @@ var ball = {
     dy:3
 }
 
+function preload(){
+
+}
 function setup(){
   var canvas =  createCanvas(700,600);
   //is this canvas already being used?, if so then what shold I do create a new canvas?
@@ -35,6 +41,11 @@ function setup(){
   poseNet = ml5.poseNet(video,modelLoaded);
   poseNet.on('pose',gotPoses);
   //if error than put parenthesis after modelLoaded above
+}
+
+function PLAY(){
+  game_status = "start";
+  document.getElementById("status").innerHTML = "Game Loaded";
 }
 
 function modelLoaded(){
@@ -53,8 +64,20 @@ function gotPoses(results){
 
 }
 
+function RESTART(){
+  playerscore = 0;
+  pcscore = 0;
+  loop();
+
+
+}
+
 
 function draw(){
+
+  if(game_status == "start"){
+
+  }
 
   if(rightWristScore > 0.2){
     fill('red');
@@ -81,7 +104,7 @@ function draw(){
    fill(250,0,0);
     stroke(0,0,250);
     strokeWeight(0.5);
-   paddle1Y = mouseY; 
+   paddle1Y = rightWristY; 
    rect(paddle1X,paddle1Y,paddle1,paddle1Height,100);
    
    
@@ -154,11 +177,13 @@ function move(){
   if (ball.y >= paddle1Y&& ball.y <= paddle1Y + paddle1Height) {
     ball.dx = -ball.dx+0.5;
     playerscore++;
+    ball_touch.play();
   }
   else{
     pcscore++;
     reset();
     navigator.vibrate(100);
+    ball_miss.play();
   }
 }
 if(pcscore ==4){
@@ -169,7 +194,7 @@ if(pcscore ==4){
     stroke("white");
     textSize(25)
     text("Game Over!☹☹",width/2,height/2);
-    text("Reload The Page!",width/2,height/2+30)
+    text("Press restart button to play again!!",width/2,height/2+30)
     noLoop();
     pcscore = 0;
 }
